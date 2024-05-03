@@ -21,7 +21,7 @@ pipeline {
 }
         stage('env'){
            steps{
-           sh "$PYTHON_INTERPRETER main.py"
+           sh "~/venv/bin/python3 main.py"
 
           
    }
