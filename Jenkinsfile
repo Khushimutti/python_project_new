@@ -19,16 +19,10 @@ pipeline {
                 sh 'pytest hello_world_test.py'
   }
 }
-        stage('env'){
-           steps{
-           sh "~/venv/bin/python3 main.py"
-
-          
-   }
-}
+  
         stage(Deploy){
             steps {
-               sh 'nohup python3 main.py > ~/flasklogs.log 2>&1 &'
+               sh ' python3 main.py > ~/flasklogs.log 2>&1 &'
    }
 }
         }
