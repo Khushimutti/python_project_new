@@ -21,12 +21,12 @@ pipeline {
 }
         stage('env'){
            steps{
-            sh label: 'Run fancy bash script',
-             script: '''
-               #!/venv/bin/activate  bash
+           sh """
+            . .venv/bin/activate
+            pip install -r requirements/test.txt
+"""
 
-               nohup python3 main.py > ~/flasklogs.log 2>&1 &
-             '''.stripIndent().stripLeading()
+          
    }
 }
         stage(Deploy){
