@@ -21,14 +21,7 @@ pipeline {
 }
         stage('env'){
            steps{
-           sh """
-. .venv/bin/activate
-if [[ -f requirements/preinstall.txt ]]; then
-    pip install -r requirements/preinstall.txt
-fi
-pip install -r requirements.txt
-./main.py test --noinput
-"""
+           sh "$PYTHON_INTERPRETER main.py"
 
           
    }
